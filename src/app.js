@@ -1,20 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
+import Login from './auth/Login';
+import Register from './auth/Register';
 import VocabIndex from './WordsIndex';
+import Homepage from './Homepage';
+import Navbar from './Navbar';
+import './scss/style.scss';
 
 class App extends React.Component {
   render() {
     return (
       <Router>
         <div>
-          <h1>Welcome</h1>
-          <h2>The best site to help you learn Maltese</h2>
-          <h3><Link to="/words">Learn Vocab</Link></h3>
-          <Switch>
-            <Route exact path="/words" component={VocabIndex} />
-          </Switch>
+          <Navbar />
+          <main>
+            <Switch>
+              <Route exact path="/words" component={VocabIndex} />
+              <Route path="/login" component={Login} />
+              <Route path="/register" component={Register} />
+              <Route path="/" component={Homepage} />
+            </Switch>
+          </main>
         </div>
       </Router>
     );
