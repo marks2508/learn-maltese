@@ -1,12 +1,12 @@
 import React from 'react';
 import Axios from 'axios';
-import { Link, BrowserRouter as Router } from 'react-router-dom';
-import  Numbers  from './Numbers';
 
-class WordsIndex extends React.Component {
+class Numbers extends React.Component {
+
   state = {
     words: []
   }
+
   componentDidMount() {
     Axios
       .get('/api/words')
@@ -17,16 +17,17 @@ class WordsIndex extends React.Component {
   render() {
     return (
       <div>
-        <h1>Welcome to the vocab section</h1>
-        <div className="row">
-          <div className="page-banner col-md-12">
-            <Numbers />
+        <h1>Numbers</h1>
+        { this.state.words.map(word =>
+          <div key={word.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
+            <h3>{word.word}</h3>
+            <p>{word.translation}</p>
           </div>
-        </div>
+        )}
       </div>
-
     );
   }
 }
 
-export default WordsIndex;
+
+export default Numbers;

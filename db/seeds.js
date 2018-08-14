@@ -6,7 +6,7 @@ const Word      = require('../models/word');
 
 const wordData = [{
   word: 'orange',
-  translation: 'njudha',
+  translation: 'orangjo',
   category: 'colour'
 }, {
   word: 'red',
@@ -18,15 +18,15 @@ const wordData = [{
   category: 'colour'
 }, {
   word: 'black',
-  translation: 'wiheed',
+  translation: 'iswed',
   category: 'colour'
 }, {
   word: 'white',
-  translation: 'ahkalili',
+  translation: 'abjad',
   category: 'colour'
 }, {
   word: 'green',
-  translation: 'klimara',
+  translation: 'ahdar',
   category: 'colour'
 }];
 

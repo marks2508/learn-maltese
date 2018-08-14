@@ -4,7 +4,8 @@ import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Login from './auth/Login';
 import Register from './auth/Register';
-import VocabIndex from './WordsIndex';
+import WordsIndex from './WordsIndex';
+import ProfileShow from './ProfileShow';
 import Homepage from './Homepage';
 import Navbar from './Navbar';
 import './scss/style.scss';
@@ -17,10 +18,11 @@ class App extends React.Component {
           <Navbar />
           <main>
             <Switch>
-              <Route exact path="/words" component={VocabIndex} />
+              <Route exact path="/profile" component={ProfileShow} />
               <Route path="/login" component={Login} />
+              <Route exact path="/" component={Homepage} />
               <Route path="/register" component={Register} />
-              <Route path="/" component={Homepage} />
+              <Route path="/words" component={WordsIndex} />
             </Switch>
           </main>
         </div>
