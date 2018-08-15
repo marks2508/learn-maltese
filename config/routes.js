@@ -1,16 +1,16 @@
 const router = require('express').Router();
-const words  = require('../controllers/words');
+const cards  = require('../controllers/cards');
 const auth = require('../controllers/auth');
 const secureRoute = require('../lib/secureRoute');
 
-router.route('/words')
-  .get(words.index)
-  .post(words.create);
+router.route('/cards')
+  .get(cards.index)
+  .post(cards.create);
 
-router.route('/words/:id')
-  .get(words.show)
-  .put(words.update)
-  .delete(secureRoute, words.delete);
+router.route('/cards/:id')
+  .get(cards.show)
+  .put(cards.update)
+  .delete(secureRoute, cards.delete);
 
 router.route('/register')
   .post(auth.register);

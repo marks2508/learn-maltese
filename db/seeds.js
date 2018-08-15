@@ -2,38 +2,46 @@ const mongoose   = require('mongoose');
 mongoose.Promise = require('bluebird');
 
 const { dbURI } = require('../config/environment');
-const Word      = require('../models/word');
+const Card      = require('../models/card');
+const User      = require('../models/user');
 
-const wordData = [{
-  word: 'orange',
-  translation: 'orangjo',
-  category: 'colour'
+const cardData = [{
+  category: 'colour',
+  words: [{
+    word: 'ahmar',
+    translation: 'red'
+  }, {
+    word: 'blue',
+    translation: 'blu'
+  }]}, {
+  category: 'body',
+  words: [{
+    word: 'il-ħalq',
+    translation: 'mouth'
+  }]
 }, {
-  word: 'red',
-  translation: 'ahmar',
-  category: 'colour'
-}, {
-  word: 'blue',
-  translation: 'blu',
-  category: 'colour'
-}, {
-  word: 'black',
-  translation: 'iswed',
-  category: 'colour'
-}, {
-  word: 'white',
-  translation: 'abjad',
-  category: 'colour'
-}, {
-  word: 'green',
-  translation: 'ahdar',
-  category: 'colour'
+  category: 'food',
+  words: [{
+    word: 'hopz',
+    translation: 'bread'
+  }]
+}
+];
+
+const userData = [{
+  name: 'Mark',
+  username: 'Mark',
+  email: 'm@m',
+  password: 'm',
+  passwordConfirmation: 'm'
 }];
 
 mongoose
   .connect(dbURI, { useMongoClient: true })
   .then(db => db.dropDatabase())
-  .then(() => Word.create(wordData))
-  .then(words => console.log(`${words.length} words created!`))
+  .then(() => Card.create(cardData))
+  .then(() => User.create(userData))
+  .then(cards => console.log(`${cards.length} cards created!`))
+
   .catch(err => console.log(err))
   .finally(() => mongoose.connection.close());

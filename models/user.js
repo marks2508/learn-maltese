@@ -5,14 +5,7 @@ const userSchema = new mongoose.Schema({
   name: { type: String, required: 'Please enter your name'},
   username: {type: String, required: 'Please enter your username'},
   email: {type: String, required: 'Please enter a valid email address'},
-  password: {type: String, required: 'Please choose a password'},
-  userlists: [{ type: mongoose.Schema.ObjectId, ref: 'Card'}]
-});
-
-userSchema.virtual('myLists', {
-  ref: 'Card',
-  localField: '_id',
-  foreignField: 'createdBy'
+  password: {type: String, required: 'Please choose a password'}
 });
 
 userSchema.set('toJSON', {

@@ -9,7 +9,7 @@ class WordsIndex extends React.Component {
   }
   componentDidMount() {
     Axios
-      .get('/api/words')
+      .get('/api/cards')
       .then(res => this.setState({ words: res.data }, () => console.log(this.state.words)))
       .catch(err => console.log(err));
   }
