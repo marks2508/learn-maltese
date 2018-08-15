@@ -10,11 +10,14 @@ class Numbers extends React.Component {
     componentWillMount() {
       Axios
         .get('/api/cards')
-        .then(res => this.setState({ words: res.data }, () => console.log(this.state.words[0].words[1].word)))
+        .then(res => this.setState({ words: res.data }, () => console.log(this.state.words[0].words[1].word))) // logs 'blue' which is correct
         .catch(err => console.log(err));
     }
 
+
     render() {
+
+
       return (
         <div>
           <h1>Numberss</h1>
@@ -23,11 +26,14 @@ class Numbers extends React.Component {
             return(
               <div key={word.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
                 <h3>Category: {word.category}</h3>
-                <h5>Word: {word.words[0].word}</h5>
-                <h5>Translation: {word.words[0].translation}</h5>
+                {/* <h5>Word: {this.state.words.words.word}</h5>
+                <h5>Translation: {this.state.words.words.translation}</h5> */}
               </div>
             );
           })}
+
+
+
         </div>
 
       );
