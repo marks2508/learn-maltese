@@ -18,15 +18,14 @@ const cardData = [{
   words: [{
     word: 'il-ħalq',
     translation: 'mouth'
-  }]
-}, {
+  }]}, {
   category: 'food',
   words: [{
     word: 'hopz',
     translation: 'bread'
   }]
-}
-];
+}];
+
 
 const userData = [{
   name: 'Mark',

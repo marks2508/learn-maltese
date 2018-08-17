@@ -7,10 +7,10 @@ class Numbers extends React.Component {
       words: []
     }
 
-    componentDidMount() {
+    componentWillMount() {
       Axios
         .get('/api/cards')
-        .then(res => this.setState({ words: res.data }, () => console.log(this.state.words[0].words[1].word))) // logs 'blue' which is correct
+        .then(res => this.setState({ words: res.data }, () => console.log(this.state.words))) // logs 'blue' which is correct
         .catch(err => console.log(err));
     }
 
@@ -18,14 +18,15 @@ class Numbers extends React.Component {
 
     render() {
 
-      let wordsArray = [];
+      const wordsArray = [];
       this.state.words.forEach(x => x.words.forEach(y => wordsArray.push(y)));
+      console.log('Word Array:', wordsArray[0]);
 
 
       return (
         <div>
           <h1>Numberss</h1>
-          <h3>dwdw</h3>
+          <h3>dwdw:  </h3>
           {wordsArray.map(function (words, i) {
             return(
               <div key={i} className="image-tile col-md-4 col-sm-6 col-xs-12">
@@ -38,7 +39,7 @@ class Numbers extends React.Component {
                 {/* <h3>Loop: {wordsArray}</h3> */}
               </div>
             );
-          })}
+          })}      
         </div>
 
       );
