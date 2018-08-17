@@ -17,7 +17,7 @@ const Navbar = ({ history}) => {
           <Link to="/" className="nav-item nav-link"><img className="navIcon" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnv0tkUzc0YWPdaFw7s-TYOW5BFMMsbR6F_vtWLYmm2dJqst3dIQ" /></Link>
         </div>
         <div className="navbar-nav ml-md-auto">
-          { Auth.isAuthenticated() && <Link to="/words" className="nav-item nav-link">Add a word</Link>}
+          { Auth.isAuthenticated() && <Link to="/cards" className="nav-item nav-link">Index</Link>}
           { !Auth.isAuthenticated() && <Link to="/login" className="nav-item nav-link">Login</Link>}
           { !Auth.isAuthenticated() && <Link to="/register" className="nav-item nav-link">Register</Link>}
           { Auth.isAuthenticated() && <Link to="#" className="nav-item nav-link" onClick={logout}> click here to Logout</Link>}

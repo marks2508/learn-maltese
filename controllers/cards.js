@@ -18,6 +18,7 @@ function cardsCreate(req, res, next) {
 function cardsShow(req, res, next) {
   Card
     .findById(req.params.id)
+    .populate('words')
     .exec()
     .then((card) => {
       if(!card) return res.notFound();
