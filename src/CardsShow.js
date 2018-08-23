@@ -2,17 +2,17 @@ import React from 'react';
 import Axios from 'axios';
 
 
-import Auth from './lib/Auth';
+// import Auth from './lib/Auth';
 
 class CardsShow extends React.Component {
   state = {
-    cards: {}
+    card: {}
   }
 
   componentWillMount() {
     Axios
       .get(`/api/cards/${this.props.match.params.id}`)
-      .then(res => this.setState({ card: res.data }, () => console.log('hello world')))
+      .then(res => this.setState({ card: res.data }, () => console.log(this.state)))
       .catch(err => console.log(err));
   }
 
@@ -28,7 +28,7 @@ class CardsShow extends React.Component {
       <div className="row">
         <div className="col-md-6">
           <h1>Hello world</h1>
-          {/* <h3>{this.state.card.category}</h3> */}
+          <h3>{this.state.card.category}</h3>
         </div>
       </div>
     );

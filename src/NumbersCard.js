@@ -4,12 +4,15 @@ import './App.css';
 // the actual quiz
 const questions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 const answers = ['wieħed', 'tnejn', 'tlieta', 'erbgħa', 'ħamsa', 'sitta', 'sebgħa', 'tmienja', 'disgħa', 'għaxra'];
+
 function getCount() {
   return questions.length;
 }
+
 function getQuestion(i) {
   return <div>How do you say <h2 style={{color: 'red'}}>{questions[i - 1]}</h2> in Maltese?</div>;
 }
+
 function getAnswer(i) {
   return answers[i - 1];
 }

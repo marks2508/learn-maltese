@@ -14,4 +14,4 @@ cardSchema.set('toJSON', {
   }
 });
 
-module.exports = mongoose.model('Card', cardSchema);
+module.exports = mongoose.model('card', cardSchema);

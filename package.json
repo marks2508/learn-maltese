@@ -7,10 +7,10 @@
   "license": "MIT",
   "scripts": {
     "start": "yarn build && node index",
-    "build": "webpack -p",
-    "seed": "node db/seeds",
     "start:client": "webpack-dev-server",
-    "start:server": "nodemon"
+    "start:server": "nodemon",
+    "build": "webpack -p",
+    "seed": "node db/seeds"
   },
   "dependencies": {
     "axios": "^0.18.0",
@@ -22,6 +22,7 @@
     "jsonwebtoken": "^8.3.0",
     "lodash": "^4.17.10",
     "mongoose": "4.11.12",
+    "mongoose-unique-validator": "1.0.6",
     "morgan": "^1.9.0",
     "node": "^10.8.0",
     "nodemon": "^1.18.3",
