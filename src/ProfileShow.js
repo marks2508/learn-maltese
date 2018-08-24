@@ -1,7 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import { Link, BrowserRouter as Router } from 'react-router-dom';
-import WordsIndex  from './WordsIndex';
+// import CardsIndex  from './CardsIndex';
 
 class ProfileShow extends React.Component {
 

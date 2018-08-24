@@ -3,7 +3,7 @@ import Axios from 'axios';
 import { Link  } from 'react-router-dom';
 // import Auth from './lib/Auth';
 
-class WordsIndex extends React.Component {
+class CardsIndex extends React.Component {
   state = {
     cards: [],
     sortBy: 'favourites',
@@ -58,4 +58,4 @@ class WordsIndex extends React.Component {
   }
 }
 
-export default WordsIndex;
+export default CardsIndex;

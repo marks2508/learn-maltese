@@ -2,7 +2,9 @@ const mongoose = require('mongoose');
 
 const cardSchema = mongoose.Schema({
   category: { type: String },
-  words: []
+  questions: [String],
+  answers: [String]
+
 });
 
 cardSchema.set('toJSON', {

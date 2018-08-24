@@ -6,24 +6,17 @@ const Card      = require('../models/card');
 const User      = require('../models/user');
 
 const cardData = [{
+  category: 'numbers',
+  questions: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+  answers: ['wieħed', 'tnejn', 'tlieta', 'erbgħa', 'ħamsa', 'sitta', 'sebgħa', 'tmienja', 'disgħa']
+}, {
+  category: 'time',
+  questions: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'],
+  answers: ['it-tnejn', 'it-tlieta', 'l-erbgħa', 'il-ħamis', 'il-ġimgħa', 'is-sibt', 'il-ħadd']
+}, {
   category: 'colour',
-  words: [{
-    word: 'ahmar',
-    translation: 'red'
-  }, {
-    word: 'blue',
-    translation: 'blu'
-  }]}, {
-  category: 'body',
-  words: [{
-    word: 'il-ħalq',
-    translation: 'mouth'
-  }]}, {
-  category: 'food',
-  words: [{
-    word: 'hopz',
-    translation: 'bread'
-  }]
+  questions: ['black', 'blue', 'green', 'orange', 'purple', 'red', 'yellow', 'white'],
+  answers: ['sewda', 'blu', 'hadra', 'oranġjo', 'vjola', 'ħamra', 'safra', 'bajda' ]
 }];
 
 

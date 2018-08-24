@@ -1,12 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Axios from 'axios';
+import Card from './Card';
 
-
-// import Auth from './lib/Auth';
 
 class CardsShow extends React.Component {
-  state = {
-    card: {}
+  constructor(props) {
+    super(props);
+    this.state = {
+      card: {
+        category: [],
+        questions: [],
+        answers: []
+      },
+      index: 0
+    };
+    this.getNextQuestion = this.getNextQuestion.bind(this);
   }
 
   componentWillMount() {
@@ -16,23 +24,33 @@ class CardsShow extends React.Component {
       .catch(err => console.log(err));
   }
 
-  // deleteCard = () => {
-  //   Axios
-  //     .delete(`/api/cards/${this.props.match.params.id}`, { headers: { 'Authorization': `Bearer ${Auth.getToken()}` }})
-  //     .then(() => this.props.history.push('/'))
-  //     .catch(err => console.log(err));
-  // }
+  getNextQuestion() {
+    this.setState({
+      index: this.state.index + 1,
+      showing: false
+    });
+  }
+
+
 
   render() {
+
+    const { showing } = this.state;
+
     return (
-      <div className="row">
-        <div className="col-md-6">
-          <h1>Hello world</h1>
-          <h3>{this.state.card.category}</h3>
-        </div>
+      <div>
+        <h1>{this.state.card.category}</h1>
+        <Card question={this.state.card.questions[this.state.index]} answer={this.state.card.answers[this.state.index]}
+        />
+        <button onClick={() => this.setState({ showing: !showing })}>Reveal</button>
+        { showing ? <div>{this.state.card.answers[this.state.index]}</div>
+          : null
+        }
+        <button onClick={this.getNextQuestion}>Next question</button>
       </div>
     );
   }
 }
+
 
 export default CardsShow;
