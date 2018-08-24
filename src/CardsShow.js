@@ -12,9 +12,14 @@ class CardsShow extends React.Component {
         questions: [],
         answers: []
       },
-      index: 0
+      index: 0,
+      favourites: {
+        questions: [],
+        answers: []
+      }
     };
     this.getNextQuestion = this.getNextQuestion.bind(this);
+    this.addToFavourites = this.addToFavourites.bind(this);
   }
 
   componentWillMount() {
@@ -29,6 +34,15 @@ class CardsShow extends React.Component {
       index: this.state.index + 1,
       showing: false
     });
+    if (this.state.index === this.state.card.questions.length) {
+      this.setState({
+        index: 0
+      });
+    }
+  }
+
+  addToFavourites() {
+    this.state.favourites.questions.push(this.state.card.questions[this.state.index]); this.state.favourites.answers.push(this.state.card.answers[this.state.index]);
   }
 
 
@@ -47,6 +61,9 @@ class CardsShow extends React.Component {
           : null
         }
         <button onClick={this.getNextQuestion}>Next question</button>
+        <button onClick={this.addToFavourites}>Add word to favourites</button>
+        <h1>{this.state.favourites.questions}</h1>
+        <h1>{this.state.favourites.answers}</h1>
       </div>
     );
   }
