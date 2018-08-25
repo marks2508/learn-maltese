@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Axios from 'axios';
 import Card from './Card';
+import Auth from './lib/Auth';
 
 
 class CardsShow extends React.Component {
@@ -42,7 +43,21 @@ class CardsShow extends React.Component {
   }
 
   addToFavourites() {
-    this.state.favourites.questions.push(this.state.card.questions[this.state.index]); this.state.favourites.answers.push(this.state.card.answers[this.state.index]);
+    this.state.favourites.questions.push(this.state.card.questions[this.state.index]);
+    this.state.favourites.answers.push(this.state.card.answers[this.state.index]);
+    console.log('boom');
+
+  }
+
+
+  handleSumbit (){
+    console.log('check');
+    addToFavourites();
+    Axios
+      .post('/api/user/favourites', { headers: {'Authorization': `Bearer ${Auth.getToken()}`}})
+
+      .then( console.log('hello'))
+      .catch(err => this.setState({errors: err.response.data.errors}));
   }
 
 
@@ -61,7 +76,7 @@ class CardsShow extends React.Component {
           : null
         }
         <button onClick={this.getNextQuestion}>Next question</button>
-        <button onClick={this.addToFavourites}>Add word to favourites</button>
+        <button onClick={this.handleSumbit}>Add word to favourites</button>
         <h1>{this.state.favourites.questions}</h1>
         <h1>{this.state.favourites.answers}</h1>
       </div>

@@ -12,6 +12,9 @@ router.route('/cards/:id')
   .put(cards.update)
   .delete(secureRoute, cards.delete);
 
+router.route('/cards/:id/favourites')
+  .post(cards.favourite);
+
 router.route('/register')
   .post(auth.register);
 
