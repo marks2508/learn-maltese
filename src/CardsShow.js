@@ -50,17 +50,14 @@ class CardsShow extends React.Component {
   }
 
 
-  handleSumbit (){
+  addFavsToDB (){
     console.log('check');
-    addToFavourites();
     Axios
-      .post('/api/user/favourites', { headers: {'Authorization': `Bearer ${Auth.getToken()}`}})
+      .post(`/api/cards/${this.props.match.params.id}/favourites`, this.state.user, { headers: {'Authorization': `Bearer ${Auth.getToken()}`}})
 
       .then( console.log('hello'))
       .catch(err => this.setState({errors: err.response.data.errors}));
   }
-
-
 
   render() {
 
@@ -76,7 +73,7 @@ class CardsShow extends React.Component {
           : null
         }
         <button onClick={this.getNextQuestion}>Next question</button>
-        <button onClick={this.handleSumbit}>Add word to favourites</button>
+        <button onClick={this.addFavsToDB}>Add word to favourites</button>
         <h1>{this.state.favourites.questions}</h1>
         <h1>{this.state.favourites.answers}</h1>
       </div>

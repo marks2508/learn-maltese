@@ -4,7 +4,6 @@ const cardSchema = mongoose.Schema({
   category: { type: String },
   questions: [String],
   answers: [String]
-
 });
 
 cardSchema.set('toJSON', {
