@@ -9,7 +9,8 @@ class ProfileShow extends React.Component {
     return (
       <div>
         <h1>Hello</h1>
-        <Link to="/cards"><button>Vocasb</button></Link>
+        <Link to="/cards"><button>Vocab</button></Link>
+        <Link to="/users/:id/favourites"><button>Favs</button></Link>
         {/* <Quiz /> */}
       </div>
 

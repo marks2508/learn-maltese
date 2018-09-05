@@ -67,8 +67,8 @@ class CardsShow extends React.Component {
     Axios
       .post(`/api/users/${this.state.users[0].id}/favourites`, { favourites: [
         {
-          answers: this.state.users[0].favourites[0].questions.concat([this.state.card.answers[this.state.index]]),
-          questions: this.state.users[0].favourites[0].answers.concat([this.state.card.questions[this.state.index]])
+          answers: this.state.users[0].favourites[0].answers.concat([this.state.card.answers[this.state.index]]),
+          questions: this.state.users[0].favourites[0].questions.concat([this.state.card.questions[this.state.index]])
         }]})
       .then( resp => console.log('response: ',resp) )
       .catch(err => this.setState({errors: err.response.data.errors}));
