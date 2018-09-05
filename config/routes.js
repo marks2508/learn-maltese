@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const cards  = require('../controllers/cards');
 const auth = require('../controllers/auth');
+const user = require('../controllers/users');
 const secureRoute = require('../lib/secureRoute');
 
 router.route('/cards')
@@ -12,8 +13,16 @@ router.route('/cards/:id')
   .put(cards.update)
   .delete(secureRoute, cards.delete);
 
-router.route('/cards/:id/favourites')
-  .post(cards.favourite);
+router.route('/users')
+  .get(user.index);
+
+router.route('/users/:id')
+  .get(user.show);
+
+router.route('/users/:id/favourites')
+  .get(user.showfavourites)
+  .put(user.addfavourite)
+  .delete(user.deletefavourites);
 
 router.route('/register')
   .post(auth.register);

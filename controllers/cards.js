@@ -1,5 +1,4 @@
 const Card = require('../models/card');
-const User = require('../models/user');
 
 function cardsIndex(req, res, next) {
   Card
@@ -41,32 +40,10 @@ function cardsDelete(req, res, next) {
     .catch(next);
 }
 
-function cardsFavourite(req, res, next) {
-  User
-    .findById(req.currentUser)
-    .exec()
-    .then((user) => {
-      // check if favourite is already in user' - indexOf returns -1 if it is not there
-      if (user.favourites.indexOf(req.params.id) > -1) {
-        // removing of the id
-        const index = user.favourites.indexOf(req.params.id);
-        user.favourites.splice(index, 1);
-      } else {
-        // push the id in to the user.favourites
-        user.favourites.push(req.params.id);
-      }
-
-      return user.save();
-    })
-    .then((user) => res.json(user))
-    .catch(next);
-}
-
 module.exports = {
   index: cardsIndex,
   create: cardsCreate,
   show: cardsShow,
   update: cardsUpdate,
-  delete: cardsDelete,
-  favourite: cardsFavourite
+  delete: cardsDelete  
 };

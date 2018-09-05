@@ -29,7 +29,21 @@ const userData = [{
   username: 'Mark',
   email: 'm@m',
   password: 'm',
-  passwordConfirmation: 'm'
+  passwordConfirmation: 'm',
+  favourites: {
+    questions: ['one', 'monday'],
+    answers: ['wieħed', 'it-tnejn']
+  }
+}, {
+  name: 'John',
+  username: 'John',
+  email: 'j@j',
+  password: 'j',
+  passwordConfirmation: 'j',
+  favourites: {
+    questions: ['purple', 'beer'],
+    answers: ['vjola', 'birra']
+  }
 }];
 
 mongoose

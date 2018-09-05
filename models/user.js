@@ -1,12 +1,30 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+const favouriteSchema = mongoose.Schema({
+  questions: [String],
+  answers: [String]
+});
+
+favouriteSchema.set('toJSON', {
+  getters: true,
+  virtuals: true,
+  transform(obj, json) {
+    delete json._id;
+    delete json.__v;
+  }
+});
+
+favouriteSchema.methodsbelongsTo = function belongsTo(user) {
+  return user._id.equals(this.ownedBy.id);
+};
+
 const userSchema = new mongoose.Schema({
   name: { type: String, required: 'Please enter your name'},
   username: {type: String, required: 'Please enter your username'},
   email: {type: String, required: 'Please enter a valid email address'},
   password: {type: String, required: 'Please choose a password'},
-  favourites: [{ type: mongoose.Schema.ObjectId, ref: 'Card'}]
+  favourites: [favouriteSchema]
 });
 
 userSchema.set('toJSON', {
