@@ -22,7 +22,6 @@ function usersShow(req, res, next) {
 function addFavourite(req, res, next) {
   console.log('request:', req.body);
   console.log('addFavourite back-end function called');
-  console.log( 'favourites: ', req.body );
   console.log( 'id: ', req.params );
   User
     .findById(req.params.id)

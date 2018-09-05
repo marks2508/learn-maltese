@@ -21,7 +21,7 @@ router.route('/users/:id')
 
 router.route('/users/:id/favourites')
   .get(user.showfavourites)
-  .put(user.addfavourite)
+  .post(user.addfavourite)
   .delete(user.deletefavourites);
 
 router.route('/register')

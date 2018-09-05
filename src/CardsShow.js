@@ -3,7 +3,6 @@ import Axios from 'axios';
 import Card from './Card';
 import Auth from './lib/Auth';
 
-
 class CardsShow extends React.Component {
   constructor(props) {
     super(props);
@@ -60,47 +59,23 @@ class CardsShow extends React.Component {
     }
   }
 
-  // addToFavourites(e) {
-  //   console.log(e)
-  //   console.log("state",typeof this.state.card.questions[this.state.index])
-  //
-  //   this.setState({ users: { favourites: { questions: this.state.card.questions.concat(this.state.card.questions[this.state.index]) }}})
-  //   // this.state.users[0].favourites.questions.push(this.state.card.questions[this.state.index])
-  //   // this.state.users[0].favourites.answers.push(this.state.card.answers[this.state.index])
-  // }
-
-
-    // questions.push(this.state.card.questions[this.state.index]);
-    // this.state.favourites.answers.push(this.state.card.answers[this.state.index]);
-
   addFavsToDB (){
     const id = this.state.users[0].id;
     console.log(id);
-    // this.addToFavourites()
-
     console.log('addFavsToDB function running');
-    console.log('state:', this.state.users )
-    Axios({
-        method: 'put',
-        url: `/api/users/${this.state.users[0].id}/favourites`,
-        data: { favourites: [
-          {
+    console.log('state:', this.state.users );
+    Axios
+      .post(`/api/users/${this.state.users[0].id}/favourites`, { favourites: [
+        {
           answers: [this.state.card.answers[this.state.index]],
           questions: [this.state.card.questions[this.state.index]]
-          }
-        ]}
-}).then( resp => console.log('response: ',resp) )
-  .catch(err => this.setState({errors: err.response.data.errors}));
-      // .post(`/api/users/${this.state.users[0].id}/favourites`,
-      //    , { headers: {'Authorization': `Bearer ${Auth.getToken()}`}})
-      // .then( resp => console.log(resp) )
-      // .catch(err => this.setState({errors: err.response.data.errors}));
+        }]})
+      .then( resp => console.log('response: ',resp) )
+      .catch(err => this.setState({errors: err.response.data.errors}));
   }
 
   render() {
-
     const { showing } = this.state;
-
     return (
       <div>
         <h1>{this.state.card.category}</h1>
@@ -112,20 +87,9 @@ class CardsShow extends React.Component {
         }
         <button onClick={this.getNextQuestion}>Next question</button>
         <button onClick={this.addFavsToDB}>Add word to favourites</button>
-        {/* <h1>{this.state.user.favourites}</h1>
-        <h1>{this.state.favourites.answers}</h1> */}
-          {/* {this.state.favourites.map(favourite => {
-            return(
-              <div key={favourite.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
-
-                <h3>{favourite.name}</h3>
-              </div>
-            );
-          })} */}
       </div>
     );
   }
 }
-
 
 export default CardsShow;
