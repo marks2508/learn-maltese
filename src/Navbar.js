@@ -20,7 +20,8 @@ const Navbar = ({ history}) => {
           { Auth.isAuthenticated() && <Link to="/cards" className="nav-item nav-link">Index</Link>}
           { !Auth.isAuthenticated() && <Link to="/login" className="nav-item nav-link">Login</Link>}
           { !Auth.isAuthenticated() && <Link to="/register" className="nav-item nav-link">Register</Link>}
-          { Auth.isAuthenticated() && <Link to="#" className="nav-item nav-link" onClick={logout}> click here to Logout</Link>}
+          { Auth.isAuthenticated() && <Link to="#" className="nav-item nav-link" onClick={logout}>Logout</Link>}
+          { Auth.isAuthenticated() && <Link to="/profile">Profile</Link>}
         </div>
       </div>
     </nav>
