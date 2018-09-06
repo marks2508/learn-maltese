@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Axios from 'axios';
 import Card from './Card';
 import Auth from './lib/Auth';
@@ -40,7 +40,9 @@ class CardsShow extends React.Component {
   componentDidMount() {
     console.log('didmount');
     Axios
-      .get('/api/users/', this.state.users, {headers: {Authorization: `Bearer ${Auth.getToken()}`}})
+      .get('/api/users/', this.state.users, {
+        headers: {Authorization: `Bearer ${Auth.getToken()}`}
+      })
       .then(res => this.setState({ users: res.data }, () => console.log(this.state.users[0].favourites[0].questions )))
       .catch(err => console.log(err));
   }
