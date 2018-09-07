@@ -40,10 +40,10 @@ class CardsShow extends React.Component {
   componentDidMount() {
     console.log('didmount');
     Axios
-      .get('/api/users/', this.state.users, {
+      .get(`/api/users/${Auth.getPayload().userId}`, this.state.users, {
         headers: {Authorization: `Bearer ${Auth.getToken()}`}
       })
-      .then(res => this.setState({ users: res.data }, () => console.log(this.state.users[0].favourites[0].questions )))
+      .then(res => this.setState({ users: res.data }, () => console.log('checking favourites', this.state.users)))
       .catch(err => console.log(err));
   }
 
@@ -60,18 +60,27 @@ class CardsShow extends React.Component {
   }
 
   addFavsToDB (){
-    const id = this.state.users[0].id;
-    console.log(id);
     console.log('addFavsToDB function running');
     console.log('state:', this.state.users );
-    Axios
-      .post(`/api/users/${this.state.users[0].id}/favourites`, { favourites: [
-        {
-          answers: this.state.users[0].favourites[0].answers.concat([this.state.card.answers[this.state.index]]),
-          questions: this.state.users[0].favourites[0].questions.concat([this.state.card.questions[this.state.index]])
-        }]})
-      .then( resp => console.log('response: ',resp) )
-      .catch(err => this.setState({errors: err.response.data.errors}));
+    if (this.state.users.favourites === '') {
+      Axios
+        .post(`/api/users/${Auth.getPayload().userId}/favourites`, { favourites: [
+          {
+            answers: this.state.card.answers[this.state.index],
+            questions: this.state.card.questions[this.state.index]
+          }]})
+        .then( resp => console.log('response: ',resp) )
+        .catch(err => this.setState({errors: err.response.data.errors}));
+    } else {
+      Axios
+        .post(`/api/users/${Auth.getPayload().userId}/favourites`, { favourites: [
+          {
+            answers: this.state.users.favourites[0].answers.concat([this.state.card.answers[this.state.index]]),
+            questions: this.state.users.favourites[0].questions.concat([this.state.card.questions[this.state.index]])
+          }]})
+        .then( resp => console.log('response: ',resp) )
+        .catch(err => this.setState({errors: err.response.data.errors}));
+    }
   }
 
   render() {
