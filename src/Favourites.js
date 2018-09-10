@@ -3,7 +3,6 @@ import Axios from 'axios';
 import Card from './Card';
 import Auth from './lib/Auth';
 
-
 class FavouritesShow extends React.Component {
   constructor(props) {
     super(props);
@@ -19,10 +18,7 @@ class FavouritesShow extends React.Component {
     this.getNextQuestion = this.getNextQuestion.bind(this);
   }
 
-
   componentWillMount() {
-    console.log('component mounted');
-    console.log(this.props.match.params.id);
     Axios
       .get(`/api/users/${Auth.getPayload().userId}`)
       .then(res => this.setState({ user: res.data}, () => console.log('state:',this.state.user.favourites)))

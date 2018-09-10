@@ -18,17 +18,11 @@ class CardsShow extends React.Component {
           answers: []
         }
       },
-      index: 0,
-      favourites: {
-        questions: [],
-        answers: []
-      }
+      index: 0
     };
     this.getNextQuestion = this.getNextQuestion.bind(this);
-    // this.addToFavourites = this.addToFavourites.bind(this);
     this.addFavsToDB = this.addFavsToDB.bind(this);
   }
-
 
   componentWillMount() {
     Axios
@@ -38,12 +32,11 @@ class CardsShow extends React.Component {
   }
 
   componentDidMount() {
-    console.log('didmount');
     Axios
       .get(`/api/users/${Auth.getPayload().userId}`, this.state.users, {
         headers: {Authorization: `Bearer ${Auth.getToken()}`}
       })
-      .then(res => this.setState({ users: res.data }, () => console.log('checking favourites', this.state.users)))
+      .then(res => this.setState({ users: res.data }, () => console.log('user after get req', this.state.users)))
       .catch(err => console.log(err));
   }
 
@@ -60,27 +53,14 @@ class CardsShow extends React.Component {
   }
 
   addFavsToDB (){
-    console.log('addFavsToDB function running');
-    console.log('state:', this.state.users );
-    if (this.state.users.favourites === '') {
-      Axios
-        .post(`/api/users/${Auth.getPayload().userId}/favourites`, { favourites: [
-          {
-            answers: this.state.card.answers[this.state.index],
-            questions: this.state.card.questions[this.state.index]
-          }]})
-        .then( resp => console.log('response: ',resp) )
-        .catch(err => this.setState({errors: err.response.data.errors}));
-    } else {
-      Axios
-        .post(`/api/users/${Auth.getPayload().userId}/favourites`, { favourites: [
-          {
-            answers: this.state.users.favourites[0].answers.concat([this.state.card.answers[this.state.index]]),
-            questions: this.state.users.favourites[0].questions.concat([this.state.card.questions[this.state.index]])
-          }]})
-        .then( resp => console.log('response: ',resp) )
-        .catch(err => this.setState({errors: err.response.data.errors}));
-    }
+    Axios
+      .post(`/api/users/${Auth.getPayload().userId}/favourites`, { favourites: [
+        {
+          answers: this.state.users.favourites[0].answers.concat([this.state.card.answers[this.state.index]]),
+          questions: this.state.users.favourites[0].questions.concat([this.state.card.questions[this.state.index]])
+        }]})
+      .then( resp => console.log('response: ',resp) )
+      .catch(err => this.setState({errors: err.response.data.errors}));
   }
 
   render() {
