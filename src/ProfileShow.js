@@ -2,11 +2,21 @@ import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import Auth from './lib/Auth';
-// import CardsIndex  from './CardsIndex';
+import BackgroundImage from './Background';
+
+const style = {
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  height: '100px'
+};
 
 class ProfileShow extends React.Component {
-  state = {
-    users: []
+  constructor() {
+    super();
+    this.state = {
+      users: []
+    };
   }
 
   componentDidMount() {
@@ -16,20 +26,26 @@ class ProfileShow extends React.Component {
       .catch(err => console.log(err));
   }
 
-
   render() {
     return (
-      <div>
-        <h1>Hello</h1>
-        <Link to="/cards"><button>Vocab</button></Link>
-        <Link to={`/users/${this.state.users.id}/favourites`}><button>Favourites</button></Link>
+      <div style={style}>
+        <img className="backgroundImage" src="./assets/malta.jpg"/>
+        <h1>Welcome back {this.state.users.name}!</h1>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-6">
+              <h3 className="text2">Learn some more vocab</h3>
+              <Link to="/cards"><button>Vocab</button></Link>
+            </div>
+            <div className="col-md-6">
+              <h3>Re-visit your favourites</h3>
+              <Link to={`/users/${this.state.users.id}/favourites`}><button>Favourites</button></Link>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 }
-
-
-
-
 
 export default ProfileShow;

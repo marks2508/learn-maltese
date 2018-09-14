@@ -1,6 +1,4 @@
-import React, { Component } from 'react';
-
-// import { Link } from 'react-router-dom';
+import React from 'react';
 
 const Card = ( props ) => (
   <div className="card-container">

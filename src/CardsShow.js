@@ -53,6 +53,7 @@ class CardsShow extends React.Component {
   }
 
   addFavsToDB (){
+    console.log('this.state.users', this.state.users);
     Axios
       .post(`/api/users/${Auth.getPayload().userId}/favourites`, { favourites: [
         {

@@ -1,19 +1,24 @@
 body {
-  font-size: 30px;
+
 }
 
 .question {
   border: 1px solid #6C9FAA;
   border-radius: 4px;
-  padding: 30px;
-  margin: 20px;
   font-size: 30px;
-
+  margin: 20px;
+  padding: 30px;
 }
 
 button {
   color: white;
-  padding: 10px 20px;
   font-size: large;
   margin-bottom: 10px;
+}
+
+.backgroundImage {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100px;
 }
