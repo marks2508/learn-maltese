@@ -16,9 +16,15 @@ button {
   margin-bottom: 10px;
 }
 
-.backgroundImage {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 100px;
+.background {
+  background-color: blue;
+  height: 10px;
+  width: 10px;
+}
+.text2 {
+  font-size: 80px;
+}
+
+.profilePage {
+  background-color: blue;
 }
