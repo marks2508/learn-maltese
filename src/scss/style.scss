@@ -25,6 +25,12 @@ a {
 
 
 .background {
-  height: 10px;
-  width: 10px;
+  background: url('../assets/malta.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.text2 {
+  font-size: 89px;
 }

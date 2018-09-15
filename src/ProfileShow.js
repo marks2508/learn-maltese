@@ -4,13 +4,6 @@ import { Link } from 'react-router-dom';
 import Auth from './lib/Auth';
 import BackgroundImage from './assets/malta.jpg';
 
-const style = {
-  backgroundPosition: 'center',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover',
-  height: '100px'
-};
-
 class ProfileShow extends React.Component {
   constructor() {
     super();
@@ -28,8 +21,8 @@ class ProfileShow extends React.Component {
 
   render() {
     return (
-      <div style={style}>
-        <img className="backgroundImage" src={ BackgroundImage }/>
+      <div>
+        <img className="background"/>
         <h1>Welcome back {this.state.users.name}!</h1>
         <div className="container">
           <div className="row">
