@@ -2,7 +2,7 @@ import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import Auth from './lib/Auth';
-import BackgroundImage from './Background';
+import BackgroundImage from './assets/malta.jpg';
 
 const style = {
   backgroundPosition: 'center',
@@ -29,7 +29,7 @@ class ProfileShow extends React.Component {
   render() {
     return (
       <div style={style}>
-        <img className="backgroundImage" src="./assets/malta.jpg"/>
+        <img className="backgroundImage" src={ BackgroundImage }/>
         <h1>Welcome back {this.state.users.name}!</h1>
         <div className="container">
           <div className="row">
