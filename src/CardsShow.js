@@ -80,12 +80,12 @@ class CardsShow extends React.Component {
         <h1>{this.state.card.category}</h1>
         <Card question={this.state.card.questions[this.state.index]} answer={this.state.card.answers[this.state.index]}
         />
-        <button onClick={() => this.setState({ showing: !showing })}>Reveal</button>
-        { showing ? <div>{this.state.card.answers[this.state.index]}</div>
+        <button className="btn btn-primary" onClick={this.getNextQuestion}>Next question</button>
+        <button className="btn btn-warning" onClick={this.addFavsToDB}>Add word to favourites</button>
+        <button className="btn btn-danger" onClick={() => this.setState({ showing: !showing })}>Reveal</button>
+        { showing ? <div className="question">{this.state.card.answers[this.state.index]}</div>
           : null
         }
-        <button onClick={this.getNextQuestion}>Next question</button>
-        <button onClick={this.addFavsToDB}>Add word to favourites</button>
       </div>
     );
   }

@@ -3,7 +3,6 @@ import Axios from 'axios';
 import { Link  } from 'react-router-dom';
 import Backgroundpic from './assets/malta.jpg';
 
-
 const background = {
   background: `url(${Backgroundpic})`,
   backgroundPosition: 'center',
@@ -11,8 +10,6 @@ const background = {
   backgroundSize: 'cover',
   height: 'calc(100vh - 200px'
 };
-
-
 
 class CardsIndex extends React.Component {
   state = {
@@ -33,16 +30,22 @@ class CardsIndex extends React.Component {
   render() {
     return(
       <div style={background}>
-        <h1>Choose one of the categories to learn new words</h1>
-        {this.state.cards.map(card => {
-          return(
-            <div key={card.id} className="image-tile col-md-4 col-sm-6 col-xs-12">
-              <Link to={`/cards/${card.id}`}>
-                <h1>{card.category}</h1>
-              </Link>
-            </div>
-          );
-        })}
+        <div className="container">
+          <div className="row">
+            {this.state.cards.map(card => {
+              return(
+                <div key={card.id} className="card card-outline col-md-2">
+                  <div className="card-body">
+                    <Link to={`/cards/${card.id}`}>
+                      <h1 className="card-title">{card.category}</h1>
+                      {/* <h3 className="card-text">Questions: {card.questions.length}</h3> */}
+                    </Link>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     );
   }
