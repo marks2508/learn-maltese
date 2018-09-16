@@ -2,6 +2,16 @@ import React from 'react';
 import Axios from 'axios';
 import LoginForm from './LoginForm';
 import Auth from '../lib/Auth';
+import Backgroundpic from '../assets/malta.jpg';
+
+
+const background = {
+  background: `url(${Backgroundpic})`,
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  height: 'calc(100vh - 200px'
+};
 
 class Login extends React.Component {
   state = {
@@ -31,12 +41,14 @@ class Login extends React.Component {
   render() {
     return (
       <main>
-        <LoginForm
-          user={this.state.user}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          errors={this.state.errors}
-        />
+        <div style={background}>
+          <LoginForm
+            user={this.state.user}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            errors={this.state.errors}
+          />
+        </div>
       </main>
     );
   }

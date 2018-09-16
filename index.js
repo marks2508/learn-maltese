@@ -10,7 +10,7 @@ const customResponses = require('./lib/customResponses');
 const errorHandler    = require('./lib/errorHandler');
 
 mongoose.Promise      = require('bluebird');
-mongoose.connect(dbURI, { useMongoClient: true });
+mongoose.connect(dbURI, { useNewUrlParser: true});
 
 app.use(morgan('dev'));
 app.use(express.static(`${__dirname}/public`));

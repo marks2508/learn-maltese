@@ -2,6 +2,15 @@ import React from 'react';
 import Axios from 'axios';
 import Card from './Card';
 import Auth from './lib/Auth';
+import Backgroundpic from './assets/malta.jpg';
+
+const background = {
+  background: `url(${Backgroundpic})`,
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  height: 'calc(100vh - 200px'
+};
 
 class CardsShow extends React.Component {
   constructor(props) {
@@ -67,7 +76,7 @@ class CardsShow extends React.Component {
   render() {
     const { showing } = this.state;
     return (
-      <div>
+      <div style={background}>
         <h1>{this.state.card.category}</h1>
         <Card question={this.state.card.questions[this.state.index]} answer={this.state.card.answers[this.state.index]}
         />

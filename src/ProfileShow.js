@@ -2,7 +2,6 @@ import React from 'react';
 import Axios from 'axios';
 import { Link } from 'react-router-dom';
 import Auth from './lib/Auth';
-import BackgroundImage from './assets/malta.jpg';
 
 class ProfileShow extends React.Component {
   constructor() {
@@ -21,8 +20,7 @@ class ProfileShow extends React.Component {
 
   render() {
     return (
-      <div>
-        <img className="background"/>
+      <div className="background">
         <h1>Welcome back {this.state.users.name}!</h1>
         <div className="container">
           <div className="row">

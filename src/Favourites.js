@@ -2,6 +2,16 @@ import React from 'react';
 import Axios from 'axios';
 import Card from './Card';
 import Auth from './lib/Auth';
+import Backgroundpic from './assets/malta.jpg';
+
+
+const background = {
+  background: `url(${Backgroundpic})`,
+  backgroundPosition: 'center',
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  height: 'calc(100vh - 200px'
+};
 
 class FavouritesShow extends React.Component {
   constructor(props) {
@@ -59,9 +69,11 @@ class FavouritesShow extends React.Component {
   render() {
 
     return (
-      <div>
-        <h1>Hello</h1>
-        {this._renderObject()}
+      <div style={background}>
+        <div>
+          <h1>Hello</h1>
+          {this._renderObject()}
+        </div>
       </div>
     );
   }

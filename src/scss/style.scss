@@ -23,14 +23,18 @@ a {
   padding: 20px;
 }
 
+.welcome {
+  font-size: 90px;
+}
+.logintext {
+  font-family: helvetica;
+  font-size: 20px;
+}
 
 .background {
   background: url('../assets/malta.jpg');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100%;
-}
-.text2 {
-  font-size: 89px;
+  height: calc(100vh - 200px;
 }
