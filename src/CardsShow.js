@@ -36,7 +36,7 @@ class CardsShow extends React.Component {
   componentWillMount() {
     Axios
       .get(`/api/cards/${this.props.match.params.id}`)
-      .then(res => this.setState({ card: res.data }, () => console.log(this.state)))
+      .then(res => this.setState({ card: res.data }))
       .catch(err => console.log(err));
   }
 
@@ -45,7 +45,7 @@ class CardsShow extends React.Component {
       .get(`/api/users/${Auth.getPayload().userId}`, this.state.users, {
         headers: {Authorization: `Bearer ${Auth.getToken()}`}
       })
-      .then(res => this.setState({ users: res.data }, () => console.log('user after get req', this.state.users)))
+      .then(res => this.setState({ users: res.data }))
       .catch(err => console.log(err));
   }
 
@@ -62,14 +62,14 @@ class CardsShow extends React.Component {
   }
 
   addFavsToDB (){
-    console.log('this.state.users', this.state.users);
+    console.log(Auth.getPayload().userId);
     Axios
       .post(`/api/users/${Auth.getPayload().userId}/favourites`, { favourites: [
         {
           answers: this.state.users.favourites[0].answers.concat([this.state.card.answers[this.state.index]]),
           questions: this.state.users.favourites[0].questions.concat([this.state.card.questions[this.state.index]])
         }]})
-      .then( resp => console.log('response: ',resp) )
+      .then( resp => console.log('response: ',resp))
       .catch(err => this.setState({errors: err.response.data.errors}));
   }
 

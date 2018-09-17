@@ -56,12 +56,18 @@ body {
 
 .welcomeback {
   font-size: 40px;
+
+  color: blue;
   font-family: 'Caveat Brush', cursive; outline: none;
   text-align: center;
 }
 
+.login {
+  width: 50%;
+}
 .logintext {
   font-size: 40px;
+  color: dodgerblue;
   font-family: 'Caveat Brush', cursive; outline: none;
   text-align: center;
 }
@@ -116,6 +122,8 @@ body {
   font-size: 45px;
   color: green;
 }
+.wrapper {
+}
 
 .question {
   font-family: 'Caveat Brush', cursive;  outline: none;
@@ -135,6 +143,14 @@ body {
   font-family: 'Caveat Brush', cursive;  outline: none;
   font-size: 45px;
   text-align: center;
+}
+
+.form-group {
+  text-align: center;
+  margin-top: 10px;
+  margin-left: 40%;
+  margin-right: 40%;
+
 }
 
 .background {

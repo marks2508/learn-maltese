@@ -8,7 +8,7 @@ const User      = require('../models/user');
 const cardData = [{
   category: 'Numbers',
   questions: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
-  answers: ['wieħed', 'tnejn', 'tlieta', 'erbgħa', 'ħamsa', 'sitta', 'sebgħa', 'tmienja', 'disgħa']
+  answers: ['wieħed', 'tnejn', 'tlieta', 'erbgħa', 'ħamsa', 'sitta', 'sebgħa', 'tmienja', 'disgħa', 'għaxar']
 }, {
   category: 'Time',
   questions: ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday'],
