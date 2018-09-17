@@ -9,7 +9,7 @@ const background = {
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-  height: 'calc(100vh - 200px'
+  height: 'calc(100vh - 175px'
 };
 
 class CardsShow extends React.Component {
@@ -77,13 +77,16 @@ class CardsShow extends React.Component {
     const { showing } = this.state;
     return (
       <div style={background}>
-        <h1>{this.state.card.category}</h1>
-        <Card question={this.state.card.questions[this.state.index]} answer={this.state.card.answers[this.state.index]}
+        <Card
+          question={this.state.card.questions[this.state.index]}
+          answer={this.state.card.answers[this.state.index]}
         />
-        <button className="btn btn-primary" onClick={this.getNextQuestion}>Next question</button>
-        <button className="btn btn-warning" onClick={this.addFavsToDB}>Add word to favourites</button>
-        <button className="btn btn-danger" onClick={() => this.setState({ showing: !showing })}>Reveal</button>
-        { showing ? <div className="question">{this.state.card.answers[this.state.index]}</div>
+        <div className="btns">
+          <button className="btn btn-primary" onClick={this.getNextQuestion}>Next question</button>
+          <button className="btn btn-warning" onClick={this.addFavsToDB}>Add word to favourites</button>
+          <button className="btn btn-danger" onClick={() => this.setState({ showing: !showing })}>Reveal answer</button>
+        </div>
+        { showing ? <div className="answer">{this.state.card.answers[this.state.index]}</div>
           : null
         }
       </div>

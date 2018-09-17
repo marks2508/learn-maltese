@@ -10,7 +10,7 @@ const background = {
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-  height: 'calc(100vh - 200px'
+  height: 'calc(100vh - 175px'
 };
 
 class FavouritesShow extends React.Component {
@@ -56,11 +56,13 @@ class FavouritesShow extends React.Component {
             question={value.questions[this.state.index]}
             answer={value.answers[this.state.index]}
           />
-          <button onClick={() => this.setState({ showing: !showing })}>Reveal</button>
-          { showing ? <div>{value.answers[this.state.index]}</div>
+          <div className="btns">
+            <button className="btn btn-primary" onClick={this.getNextQuestion}>Next question</button>
+            <button className="btn btn-danger" onClick={() => this.setState({ showing: !showing })}>Reveal</button>
+          </div>
+          { showing ? <div className="answer">{value.answers[this.state.index]}</div>
             : null
           }
-          <button onClick={this.getNextQuestion}>Next question</button>
         </div>
       );
     });
@@ -71,7 +73,6 @@ class FavouritesShow extends React.Component {
     return (
       <div style={background}>
         <div>
-          <h1>Hello</h1>
           {this._renderObject()}
         </div>
       </div>

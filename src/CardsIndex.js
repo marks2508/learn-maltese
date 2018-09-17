@@ -8,7 +8,7 @@ const background = {
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-  height: 'calc(100vh - 200px'
+  height: 'calc(100vh - 175px'
 };
 
 class CardsIndex extends React.Component {
@@ -30,6 +30,7 @@ class CardsIndex extends React.Component {
   render() {
     return(
       <div style={background}>
+        <h1 className="indexText">Pick a category</h1>
         <div className="container">
           <div className="row">
             {this.state.cards.map(card => {
@@ -38,7 +39,6 @@ class CardsIndex extends React.Component {
                   <div className="card-body">
                     <Link to={`/cards/${card.id}`}>
                       <h1 className="card-title">{card.category}</h1>
-                      {/* <h3 className="card-text">Questions: {card.questions.length}</h3> */}
                     </Link>
                   </div>
                 </div>

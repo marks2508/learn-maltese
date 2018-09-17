@@ -4,7 +4,7 @@ const LoginForm = ({handleChange, handleSubmit, user}) => {
   return (
     <div className="container">
       <div className="row">
-        <div className="col-md-4 login">
+        <div className="col-md-4">
           <h2 className="logintext">Welcome back!<br /><br />Please login to access our site</h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">

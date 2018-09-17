@@ -10,7 +10,7 @@ const background = {
   backgroundPosition: 'center',
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-  height: 'calc(100vh - 200px'
+  height: 'calc(100vh - 175px'
 };
 
 class Login extends React.Component {

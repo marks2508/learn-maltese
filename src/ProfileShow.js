@@ -21,16 +21,14 @@ class ProfileShow extends React.Component {
   render() {
     return (
       <div className="background">
-        <h1>Welcome back {this.state.users.name}!</h1>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-6">
-              <h3 className="text2">Learn some more vocab</h3>
-              <Link to="/cards"><button>Vocab</button></Link>
-            </div>
-            <div className="col-md-6">
-              <h3>Re-visit your favourites</h3>
-              <Link to={`/users/${this.state.users.id}/favourites`}><button>Favourites</button></Link>
+        <div className="profile">
+          <h1 className="welcomeback">Welcome back {this.state.users.name}!</h1>
+          <div className="container">
+            <div className="row">
+              <div className="col-4">
+                <Link to="/cards"><button className="btn btn-primary btns">Learn more vocab</button></Link>
+                <Link to={`/users/${this.state.users.id}/favourites`}><button className="btn btn-warning btns">Go to your favourites</button></Link>
+              </div>
             </div>
           </div>
         </div>
